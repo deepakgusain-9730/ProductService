@@ -4,10 +4,9 @@ import com.learning.firstspringapi.dto.FakeStoreProductDto;
 import com.learning.firstspringapi.models.Product;
 import com.learning.firstspringapi.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +30,11 @@ public class ProductController {
     @GetMapping()
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable("id") Long id, @RequestBody Product product) {
+        Product product1 = productService.updateProduct(id, product);
+        return new ResponseEntity<Product>(product1, HttpStatus.OK);
     }
 }
