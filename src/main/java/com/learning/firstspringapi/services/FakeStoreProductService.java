@@ -3,18 +3,16 @@ package com.learning.firstspringapi.services;
 import com.learning.firstspringapi.dto.FakeStoreProductDto;
 import com.learning.firstspringapi.models.Category;
 import com.learning.firstspringapi.models.Product;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpMessageConverterExtractor;
 import org.springframework.web.client.RequestCallback;
-import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("FakeStoreProductService")
 public class FakeStoreProductService implements ProductService {
 
     private RestTemplate restTemplate;
